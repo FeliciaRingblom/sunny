@@ -9,6 +9,7 @@ import React, {
 } from 'react-native';
 
 import styles from './style'
+import ListRow from '../ListRow'
 
 var locations = ['Mariestad', 'Linköping', 'Skövde']
 
@@ -52,11 +53,7 @@ class Main extends Component {
   }
   renderRow(rowData){
     return (
-      <View>
-        <View style={styles.rowContainer}>
-          <Text style={styles.rowText}> {rowData} </Text>
-        </View>
-      </View>
+      <ListRow city={rowData}/>
     )
   }
   render() {

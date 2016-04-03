@@ -27,14 +27,6 @@ const styles = StyleSheet.create({
     color: '#111',
     flex: 10
   },
-  rowContainer: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: 'white'
-  },
-  rowText: {
-    color: 'white'
-  },
   footerContainer: {
     backgroundColor: '#E3E3E3',
     alignItems: 'center',
