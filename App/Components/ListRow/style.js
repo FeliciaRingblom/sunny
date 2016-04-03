@@ -7,10 +7,21 @@ const styles = StyleSheet.create({
   rowContainer: {
     padding: 10,
     borderBottomWidth: 1,
-    borderColor: 'white'
+    borderColor: 'white',
+    flex: 1,
+    flexDirection: 'row'
   },
-  rowText: {
-    color: 'white'
+  city: {
+    color: 'white',
+    flex: 4
+  },
+  temp: {
+    color: 'white',
+    flex: 1
+  },
+  weather: {
+    color: 'white',
+    flex: 2
   }
 });
 

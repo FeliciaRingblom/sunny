@@ -50,12 +50,12 @@ class ListRow extends Component {
       })
   }
   render() {
-    console.log(this.state);
     return (
       <View>
         <View style={styles.rowContainer}>
-          <Text style={styles.rowText}> {this.props.city} </Text>
-          <Text style={styles.rowText}> {this.state.forecast.temp} </Text>
+          <Text style={styles.city}> {this.props.city} </Text>
+          <Text style={styles.temp}> {this.state.forecast.temp} °C</Text>
+          <Text style={styles.weather}> {this.state.forecast.main} </Text>
         </View>
       </View>
     );
