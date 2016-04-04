@@ -1,6 +1,5 @@
 import React, {
   Component,
-  StyleSheet,
   Text,
   View,
   ListView,
@@ -10,6 +9,7 @@ import React, {
 
 import styles from './style'
 import api from '../../Utils/api'
+import DetailsView from '../DetailsView'
 
 class ListRow extends Component {
   constructor(props){
@@ -49,21 +49,33 @@ class ListRow extends Component {
         })
       })
   }
+  goToDetails(){
+    this.props.navigator.push({
+      component: DetailsView,
+      passProps: {
+        forecast: this.state.forecast,
+        city: this.props.city
+      }
+    });
+  }
   render() {
     return (
-      <View>
+      <TouchableHighlight
+        onPress={this.goToDetails.bind(this)}
+        underlayColor="#FFFFFF">
         <View style={styles.rowContainer}>
           <Text style={styles.city}> {this.props.city} </Text>
           <Text style={styles.temp}> {this.state.forecast.temp} °C</Text>
           <Text style={styles.weather}> {this.state.forecast.main} </Text>
         </View>
-      </View>
+      </TouchableHighlight>
     );
   }
 }
 
 ListRow.propTypes = {
-  city: React.PropTypes.string.isRequired
+  city: React.PropTypes.string.isRequired,
+  navigator: React.PropTypes.object.isRequired
 }
 
 export default ListRow;

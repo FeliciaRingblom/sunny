@@ -12,7 +12,7 @@ var SunnyApp = React.createClass({
   _renderScene(route, navigator) {
     var Component = route.component;
     return (
-      <Component {...route.props} navigator={navigator} route={route} />
+      <Component {...route.passProps} navigator={navigator} route={route} />
     );
   },
   render() {
@@ -22,6 +22,9 @@ var SunnyApp = React.createClass({
           component: Main
         }}
         renderScene={this._renderScene}
+        configureScene={() => ({
+          ...Navigator.SceneConfigs.HorizontalSwipeJump,
+        })}
       />
     );
   }

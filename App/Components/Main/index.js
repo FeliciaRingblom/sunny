@@ -1,6 +1,5 @@
 import React, {
   Component,
-  StyleSheet,
   Text,
   View,
   ListView,
@@ -53,7 +52,7 @@ class Main extends Component {
   }
   renderRow(rowData){
     return (
-      <ListRow city={rowData}/>
+      <ListRow city={rowData} navigator={this.props.navigator}/>
     )
   }
   render() {
@@ -61,7 +60,7 @@ class Main extends Component {
       <View style={styles.container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
         />
         {this.footer()}
       </View>
