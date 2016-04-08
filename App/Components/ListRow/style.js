@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   temp: {
     color: 'white',
-    flex: 1
+    flex: 2
   },
   weather: {
     color: 'white',

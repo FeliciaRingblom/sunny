@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
   descriptionLong: {
     color: 'white',
     fontSize: 15
+  },
+  icon:  {
+    fontFamily: 'WeatherIcons-Regular',
+    color: 'white',
+    fontSize: 50,
+    //transform: [{rotate: '50deg'}]
   }
 });
 

@@ -8,18 +8,20 @@ import React, {
 } from 'react-native';
 
 import styles from './style'
-import ListRow from '../ListRow'
+import api from '../../Utils/api'
+import ListContainer from '../ListContainer'
 
-var locations = ['Mariestad', 'Linköping', 'Skövde']
+var locationIds = [2692613, 2677234, 8131853];
 
 class Main extends Component {
   constructor(props){
     super(props);
-    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: this.ds.cloneWithRows(locations),
       value: null
     }
+  }
+  componentDidMount(){
+    this.getForecasts();
   }
   handleChange(e){
     this.setState({
@@ -27,11 +29,41 @@ class Main extends Component {
     })
   }
   handleSubmit(){
-    locations.push(this.state.value);
+    this.getForecast(this.state.value);
+
     this.setState({
-      dataSource: this.ds.cloneWithRows(locations),
       value: ''
     })
+  }
+  handleForecastResponse(res){
+    var newForecasts = this.state.forecasts.slice();
+    newForecasts.push(res);
+    this.setState({forecasts: newForecasts})
+  }
+  getForecast(city){
+    api.getForecastForCity(city)
+      .then((jsonRes) => this.handleForecastResponse(jsonRes))
+      .catch((err) => {
+        this.setState({
+          forecasts: null,
+          error: `There was an error: ${err}`
+        })
+      })
+  }
+  handleForecastsResponse(res){
+    this.setState({
+      forecasts: res.list
+    });
+  }
+  getForecasts(){
+    api.getForecasts(locationIds)
+      .then((jsonRes) => this.handleForecastsResponse(jsonRes))
+      .catch((err) => {
+        this.setState({
+          forecastS: null,
+          error: `There was an error: ${err}`
+        })
+      })
   }
   footer(){
     return (
@@ -50,22 +82,22 @@ class Main extends Component {
       </View>
     )
   }
-  renderRow(rowData){
-    return (
-      <ListRow city={rowData} navigator={this.props.navigator}/>
-    )
-  }
   render() {
-    return (
-      <View style={styles.container}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow.bind(this)}
-        />
-        {this.footer()}
-      </View>
-    );
+    if(this.state.forecasts){
+      return (
+        <View style={styles.container}>
+          <ListContainer navigator={this.props.navigator} forecasts={this.state.forecasts}/>
+          {this.footer()}
+        </View>
+      );
+    } else {
+      return <Text>Could not retrieve data</Text>
+    }
   }
+}
+
+Main.propTypes = {
+  navigator: React.PropTypes.object.isRequired
 }
 
 export default Main;

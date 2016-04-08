@@ -8,53 +8,18 @@ import React, {
 } from 'react-native';
 
 import styles from './style'
-import api from '../../Utils/api'
 import DetailsView from '../DetailsView'
 
 class ListRow extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      forecast: {
-        main: '-',
-        description: '-',
-        temp: '-'
-      },
-      error: ''
-    }
-  }
-  componentWillMount(){
-    this.setState({forecaste: this.getForecast()});
-  }
-  handleResponse(res){
-    this.setState({
-      forecast: {
-        main: res.weather[0].main,
-        description: res.weather[0].description,
-        temp: res.main.temp.toFixed(1)
-      }
-    });
-  }
-  getForecast(){
-    api.getForecastForCity(this.props.city)
-      .then((jsonRes) => this.handleResponse(jsonRes))
-      .catch((err) => {
-        this.setState({
-          forecast: {
-            main: '-',
-            description: '-',
-            temp: '-'
-          },
-          error: `There was an error: ${err}`
-        })
-      })
+    console.log(this.props.forecast);
   }
   goToDetails(){
     this.props.navigator.push({
       component: DetailsView,
       passProps: {
-        forecast: this.state.forecast,
-        city: this.props.city
+        forecast: this.props.forecast
       }
     });
   }
@@ -64,9 +29,9 @@ class ListRow extends Component {
         onPress={this.goToDetails.bind(this)}
         underlayColor="#FFFFFF">
         <View style={styles.rowContainer}>
-          <Text style={styles.city}> {this.props.city} </Text>
-          <Text style={styles.temp}> {this.state.forecast.temp} °C</Text>
-          <Text style={styles.weather}> {this.state.forecast.main} </Text>
+          <Text style={styles.city}> {this.props.forecast.name} </Text>
+          <Text style={styles.temp}> {this.props.forecast.main.temp} °C</Text>
+          <Text style={styles.weather}> {this.props.forecast.weather[0].main} </Text>
         </View>
       </TouchableHighlight>
     );
@@ -74,7 +39,7 @@ class ListRow extends Component {
 }
 
 ListRow.propTypes = {
-  city: React.PropTypes.string.isRequired,
+  forecast: React.PropTypes.object.isRequired,
   navigator: React.PropTypes.object.isRequired
 }
 
