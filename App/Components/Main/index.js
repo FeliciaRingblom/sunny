@@ -17,7 +17,8 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      value: null
+      value: null,
+      forecasts: null
     }
   }
   componentDidMount(){
@@ -60,7 +61,7 @@ class Main extends Component {
       .then((jsonRes) => this.handleForecastsResponse(jsonRes))
       .catch((err) => {
         this.setState({
-          forecastS: null,
+          forecasts: null,
           error: `There was an error: ${err}`
         })
       })
@@ -91,7 +92,11 @@ class Main extends Component {
         </View>
       );
     } else {
-      return <Text>Could not retrieve data</Text>
+      return (
+      <View style={styles.container}>
+        <Text>Could not retrieve data</Text>
+      </View>
+      )
     }
   }
 }
