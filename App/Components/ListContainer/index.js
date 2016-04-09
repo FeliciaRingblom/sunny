@@ -18,19 +18,12 @@ class ListContainer extends Component {
       dataSource: this.ds.cloneWithRows(this.props.forecasts)
     }
   }
-  componentWillMount(){
-    this.state = {
-      dataSource: this.ds.cloneWithRows(this.props.forecasts)
-    }
-  }
   renderRow(rowData){
     return (
       <ListRow forecast={rowData} navigator={this.props.navigator}/>
     )
   }
   render() {
-    console.log(this.props.forecasts);
-
     return (
       <ListView
         dataSource={this.state.dataSource}

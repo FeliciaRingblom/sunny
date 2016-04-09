@@ -11,10 +11,6 @@ import styles from './style'
 import DetailsView from '../DetailsView'
 
 class ListRow extends Component {
-  constructor(props){
-    super(props);
-    console.log(this.props.forecast);
-  }
   goToDetails(){
     this.props.navigator.push({
       component: DetailsView,
