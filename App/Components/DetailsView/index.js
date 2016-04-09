@@ -17,6 +17,7 @@ const iconStyle = StyleSheet.create({
 
 class DetailsView extends Component {
   render() {
+    let iconId = this.props.forecast.weather[0].id;
     return (
         <View style={styles.container}>
           <Text style={styles.location}> {this.props.forecast.name} </Text>
@@ -25,7 +26,7 @@ class DetailsView extends Component {
           <Text style={styles.descriptionLong}> {this.props.forecast.weather[0].description} </Text>
           <Text style={styles.descriptionLong}> {this.props.forecast.sys.sunset} </Text>
           <Text style={styles.descriptionLong}> {this.props.forecast.sys.sunrise} </Text>
-          <Text style={styles.icon}>{iconMapping[200]}</Text>
+          <Text style={styles.icon}>{iconMapping[iconId]}</Text>
           <Text style={[styles.icon, iconStyle.rotate]}>{iconMapping['wind']}</Text>
         </View>
     );
