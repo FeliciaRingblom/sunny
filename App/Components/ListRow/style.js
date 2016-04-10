@@ -5,11 +5,13 @@ import React, {
 
 const styles = StyleSheet.create({
   rowContainer: {
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderColor: 'white',
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems:'center',
   },
   city: {
     color: 'white',
@@ -17,11 +19,14 @@ const styles = StyleSheet.create({
   },
   temp: {
     color: 'white',
-    flex: 2
+    flex: 1
   },
-  weather: {
+  icon:  {
+    flex: 1,
+    fontFamily: 'WeatherIcons-Regular',
     color: 'white',
-    flex: 2
+    fontSize: 20,
+    textAlign: 'right'
   }
 });
 

@@ -8,15 +8,15 @@ import React, {
 import styles from './style'
 import iconMapping from '../../Utils/iconMappings';
 
-var degrees = '50deg';
-const iconStyle = StyleSheet.create({
-  rotate: {
-    transform: [{rotate: degrees}]
-  }
-});
+
 
 class DetailsView extends Component {
+  setRotation(deg){
+    var degrees = `${deg}deg`;
+    return {transform: [{rotate: degrees}]};
+  }
   render() {
+    console.log(this.props.forecast);
     let iconId = this.props.forecast.weather[0].id;
     return (
         <View style={styles.container}>
@@ -27,7 +27,8 @@ class DetailsView extends Component {
           <Text style={styles.descriptionLong}> {this.props.forecast.sys.sunset} </Text>
           <Text style={styles.descriptionLong}> {this.props.forecast.sys.sunrise} </Text>
           <Text style={styles.icon}>{iconMapping[iconId]}</Text>
-          <Text style={[styles.icon, iconStyle.rotate]}>{iconMapping['wind']}</Text>
+          <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
+          <Text style={styles.descriptionLong}> {this.props.forecast.wind.speed} </Text>
         </View>
     );
   }
