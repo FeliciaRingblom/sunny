@@ -1,5 +1,7 @@
 const iconMappings = {
-  100: '\uf0b1',
+  100: '\uf0b1', //wwind
+  101: '\uf051', //sunrise
+  102: '\uf052', //sunset
   200: '\uf01e',
   201: '\uf01e',
   202: '\uf01e',
