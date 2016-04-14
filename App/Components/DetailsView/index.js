@@ -7,7 +7,7 @@ import React, {
 
 import styles from './style'
 import iconMapping from '../../Utils/iconMappings';
-
+import PhotoBack from '../PhotoBack'
 
 
 class DetailsView extends Component {
@@ -23,24 +23,27 @@ class DetailsView extends Component {
     sunsetTime.setTime(this.props.forecast.sys.sunset*1000);
 
     return (
-        <View style={styles.container}>
-          <Text style={styles.location}> {this.props.forecast.name} </Text>
-          <Text style={styles.temp}> {this.props.forecast.main.temp.toFixed(1)} °C </Text>
-          <Text style={styles.descriptionShort}> {this.props.forecast.weather[0].main} </Text>
-          <Text style={styles.descriptionLong}> {this.props.forecast.weather[0].description} </Text>
-          <Text style={styles.iconLg}>{iconMapping[iconId]}</Text>
+        <PhotoBack>
+          <View style={styles.container}>
+            <Text style={styles.location}> {this.props.forecast.name} </Text>
+            <Text style={styles.temp}> {this.props.forecast.main.temp.toFixed(1)} °C </Text>
+            <Text style={styles.descriptionShort}> {this.props.forecast.weather[0].main} </Text>
+            <Text style={styles.descriptionLong}> {this.props.forecast.weather[0].description} </Text>
+            <Text style={styles.iconLg}>{iconMapping[iconId]}</Text>
 
-          <View style={styles.iconRow}>
-            <Text style={styles.icon}>{iconMapping[101]}</Text>
-            <Text style={styles.iconText}> {`${sunriseTime.getHours()}:${sunsetTime.getMinutes()}`} </Text>
+            <View style={styles.iconRow}>
+              <Text style={styles.icon}>{iconMapping[101]}</Text>
+              <Text style={styles.iconText}> {`${sunriseTime.getHours()}:${sunsetTime.getMinutes()}`} </Text>
 
-            <Text style={styles.icon}>{iconMapping[102]}</Text>
-            <Text style={styles.iconText}> {`${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`} </Text>
+              <Text style={styles.icon}>{iconMapping[102]}</Text>
+              <Text style={styles.iconText}> {`${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`} </Text>
 
-            <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
-            <Text style={styles.iconText}> {this.props.forecast.wind.speed} m/s</Text>
+              <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
+              <Text style={styles.iconText}> {this.props.forecast.wind.speed.toFixed(0)} m/s</Text>
+            </View>
+            <Text style={styles.cameraBtn}> {'\uf030'} </Text>
           </View>
-        </View>
+        </PhotoBack>
     );
   }
 }
