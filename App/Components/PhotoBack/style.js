@@ -3,8 +3,11 @@ var { StyleSheet } = React;
 
 var styles = StyleSheet.create({
   backdrop: {
-    flexDirection: 'column',
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    width: null,
+    height: null
   }
 });
 
