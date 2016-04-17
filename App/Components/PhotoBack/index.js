@@ -1,7 +1,9 @@
 import React, {
   Image,
   ImagePickerIOS,
-  Component
+  Component,
+  TouchableHighlight,
+  Text
 } from 'react-native';
 
 import styles from './style';
@@ -14,7 +16,8 @@ class PhotoBackdrop extends Component{
     }
   }
   pickImage() {
-    ImagePickerIOS.openCameraDialog(
+    console.log(ImagePickerIOS);
+    ImagePickerIOS.openSelectDialog(
       {},
       (data) => {
         this.setState({
@@ -32,6 +35,11 @@ class PhotoBackdrop extends Component{
         source={ this.state.photoSource }
         resizeMode='cover'>
         {this.props.children}
+        <TouchableHighlight
+          underlayColor='rgba(255,255,255,0.8)'
+          onPress={this.pickImage.bind(this)}>
+          <Text style={styles.cameraBtn}> {'\uf030'} </Text>
+        </TouchableHighlight>
       </Image>
       );
   }

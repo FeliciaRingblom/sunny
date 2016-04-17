@@ -51,12 +51,6 @@ const styles = StyleSheet.create({
     flex: 3,
     color: 'white',
     fontSize: 20
-  },
-  cameraBtn: {
-    fontFamily: 'FontAwesome',
-    color: 'white',
-    fontSize: 75,
-    textAlign: 'center'
   }
 });
 

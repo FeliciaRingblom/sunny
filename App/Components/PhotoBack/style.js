@@ -8,7 +8,16 @@ var styles = StyleSheet.create({
     alignItems: 'stretch',
     width: null,
     height: null
+  },
+  cameraBtn: {
+    fontFamily: 'FontAwesome',
+    color: 'white',
+    fontSize: 30,
+    textAlign: 'center',
+    position: 'absolute',
+    right: 7,
+    bottom: 7
   }
 });
 
-module.exports = styles;
+export default styles;

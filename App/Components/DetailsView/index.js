@@ -41,7 +41,6 @@ class DetailsView extends Component {
               <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
               <Text style={styles.iconText}> {this.props.forecast.wind.speed.toFixed(0)} m/s</Text>
             </View>
-            <Text style={styles.cameraBtn}> {'\uf030'} </Text>
           </View>
         </PhotoBack>
     );

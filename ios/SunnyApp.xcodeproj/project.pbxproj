@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -24,6 +25,7 @@
 		8B70CD391CB2F66E00E40A29 /* owfont-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B70CD381CB2F66E00E40A29 /* owfont-regular.ttf */; };
 		8B70CD451CB2FCD600E40A29 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B70CD441CB2FCD600E40A29 /* weathericons-regular-webfont.ttf */; };
 		8B883D011CBC29BD00AC3FAB /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B883D001CBC29BD00AC3FAB /* fontawesome-webfont.ttf */; };
+		8BE4A1F71CC3F0530045A097 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE4A1F61CC3F0530045A097 /* libRCTCameraRoll.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,7 @@
 		8B70CD381CB2F66E00E40A29 /* owfont-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "owfont-regular.ttf"; path = "../../../../Downloads/owfont-master/fonts/owfont-regular.ttf"; sourceTree = "<group>"; };
 		8B70CD441CB2FCD600E40A29 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weathericons-regular-webfont.ttf"; path = "../../../../Downloads/weather-icons-master/font/weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		8B883D001CBC29BD00AC3FAB /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../../../../Downloads/font-awesome-4.6.0/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		8BE4A1F61CC3F0530045A097 /* libRCTCameraRoll.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRCTCameraRoll.a; path = "../node_modules/react-native/Libraries/CameraRoll/build/Debug-iphoneos/libRCTCameraRoll.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				8BE4A1F71CC3F0530045A097 /* libRCTCameraRoll.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -292,6 +296,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8BE4A1F61CC3F0530045A097 /* libRCTCameraRoll.a */,
 				8B883D001CBC29BD00AC3FAB /* fontawesome-webfont.ttf */,
 				8B70CD441CB2FCD600E40A29 /* weathericons-regular-webfont.ttf */,
 				8B70CD381CB2F66E00E40A29 /* owfont-regular.ttf */,
@@ -604,9 +609,7 @@
 				INFOPLIST_FILE = SunnyAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyApp.app/SunnyApp";
 			};
@@ -624,9 +627,7 @@
 				INFOPLIST_FILE = SunnyAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyApp.app/SunnyApp";
 			};
