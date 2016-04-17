@@ -5,7 +5,8 @@ import React, {
   ListView,
   TextInput,
   TouchableHighlight,
-  ActivityIndicatorIOS
+  ActivityIndicatorIOS,
+  StatusBarIOS
 } from 'react-native';
 
 import styles from './style'
@@ -25,6 +26,7 @@ class Main extends Component {
   }
   componentDidMount(){
     this.getForecasts();
+    StatusBarIOS.setStyle(1, true);
   }
   handleChange(e){
     this.setState({
