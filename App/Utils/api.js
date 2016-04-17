@@ -9,7 +9,6 @@ var api = {
   },
   getForecasts(ids) {
     var url = `${API_STEM}group?id=${ids.join()}&units=metric&APPID=${API_KEY}`;
-    console.log(url);
     return fetch(url).then((res) => res.json())
   }
 };

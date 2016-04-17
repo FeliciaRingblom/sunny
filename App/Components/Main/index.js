@@ -4,7 +4,8 @@ import React, {
   View,
   ListView,
   TextInput,
-  TouchableHighlight
+  TouchableHighlight,
+  ActivityIndicatorIOS
 } from 'react-native';
 
 import styles from './style'
@@ -18,7 +19,8 @@ class Main extends Component {
     super(props);
     this.state = {
       value: null,
-      forecasts: null
+      forecasts: null,
+      loaded: false
     }
   }
   componentDidMount(){
@@ -31,15 +33,18 @@ class Main extends Component {
   }
   handleSubmit(){
     this.getForecast(this.state.value);
-
     this.setState({
-      value: ''
+      value: '',
+      loaded: false
     })
   }
   handleForecastResponse(res){
     var newForecasts = this.state.forecasts.slice();
     newForecasts.push(res);
-    this.setState({forecasts: newForecasts})
+    this.setState({
+      forecasts: newForecasts,
+      loaded: true
+    })
   }
   getForecast(city){
     api.getForecastForCity(city)
@@ -53,7 +58,8 @@ class Main extends Component {
   }
   handleForecastsResponse(res){
     this.setState({
-      forecasts: res.list
+      forecasts: res.list,
+      loaded: true
     });
   }
   getForecasts(){
@@ -84,7 +90,7 @@ class Main extends Component {
     )
   }
   render() {
-    if(this.state.forecasts){
+    if(this.state.loaded){
       return (
         <View style={styles.container}>
           <ListContainer navigator={this.props.navigator} forecasts={this.state.forecasts}/>
@@ -93,9 +99,13 @@ class Main extends Component {
       );
     } else {
       return (
-      <View style={styles.container}>
-        <Text>Could not retrieve data</Text>
-      </View>
+        <View style={styles.container}>
+          <ActivityIndicatorIOS
+            animating={this.state.animating}
+            size="large"
+            color='white'
+          />
+        </View>
       )
     }
   }
