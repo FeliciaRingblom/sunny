@@ -17,7 +17,8 @@ class ListRow extends Component {
       component: DetailsView,
       passProps: {
         forecast: this.props.forecast
-      }
+      },
+      type: 'Normal'
     });
   }
   render() {

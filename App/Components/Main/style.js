@@ -31,6 +31,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3E3E3',
     alignItems: 'center',
     flexDirection: 'row'
+  },
+  addBtn: {
+    fontFamily: 'FontAwesome',
+    color: 'white',
+    fontSize: 30,
+    textAlign: 'center',
+    position: 'absolute',
+    right: 7,
+    bottom: 7
   }
 });
 

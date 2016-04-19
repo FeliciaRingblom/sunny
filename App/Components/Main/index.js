@@ -12,6 +12,7 @@ import React, {
 import styles from './style'
 import api from '../../Utils/api'
 import ListContainer from '../ListContainer'
+import InputView from '../InputView'
 
 var locationIds = [2692613, 2677234, 8131853];
 
@@ -39,6 +40,16 @@ class Main extends Component {
       value: '',
       loaded: false
     })
+  }
+  addLocation(){
+    console.log('Add location');
+    this.props.navigator.push({
+      component: InputView,
+      passProps: {
+        navigator: this.props.navigator
+      },
+      type: 'FromBottom'
+    });
   }
   handleForecastResponse(res){
     var newForecasts = this.state.forecasts.slice();
@@ -96,6 +107,11 @@ class Main extends Component {
       return (
         <View style={styles.container}>
           <ListContainer navigator={this.props.navigator} forecasts={this.state.forecasts}/>
+          <TouchableHighlight
+            underlayColor='rgba(255,255,255,0.8)'
+            onPress={this.addLocation.bind(this)}>
+            <Text style={styles.addBtn}> {'\uf196'} </Text>
+          </TouchableHighlight>
           {this.footer()}
         </View>
       );

@@ -15,6 +15,12 @@ var SunnyApp = React.createClass({
       <Component {...route.passProps} navigator={navigator} route={route} />
     );
   },
+  _configureScene(route, navigator) {
+    if(route.type == 'Normal') {
+      return Navigator.SceneConfigs.PushFromRight
+    }
+    return Navigator.SceneConfigs.FloatFromBottom
+  },
   render() {
     return (
       <Navigator
@@ -22,9 +28,7 @@ var SunnyApp = React.createClass({
           component: Main
         }}
         renderScene={this._renderScene}
-        configureScene={() => ({
-          ...Navigator.SceneConfigs.HorizontalSwipeJump,
-        })}
+        configureScene={this._configureScene}
       />
     );
   }
