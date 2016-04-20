@@ -16,7 +16,6 @@ class PhotoBackdrop extends Component{
     }
   }
   pickImage() {
-    console.log(ImagePickerIOS);
     ImagePickerIOS.openSelectDialog(
       {},
       (data) => {

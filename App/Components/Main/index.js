@@ -20,7 +20,6 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      value: null,
       forecasts: null,
       loaded: false
     }
@@ -29,24 +28,18 @@ class Main extends Component {
     this.getForecasts();
     StatusBarIOS.setStyle(1, true);
   }
-  handleChange(e){
+  handleSubmit(location){
+    this.getForecast(location);
     this.setState({
-      value: e.nativeEvent.text
-    })
-  }
-  handleSubmit(){
-    this.getForecast(this.state.value);
-    this.setState({
-      value: '',
       loaded: false
     })
   }
   addLocation(){
-    console.log('Add location');
     this.props.navigator.push({
       component: InputView,
       passProps: {
-        navigator: this.props.navigator
+        navigator: this.props.navigator,
+        onSubmit: this.handleSubmit.bind(this)
       },
       type: 'FromBottom'
     });
@@ -85,23 +78,6 @@ class Main extends Component {
         })
       })
   }
-  footer(){
-    return (
-      <View style={styles.footerContainer}>
-        <TextInput
-            style={styles.inputField}
-            value={this.state.value}
-            onChange={this.handleChange.bind(this)}
-            placeholder="New location..." />
-        <TouchableHighlight
-            style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayColor="#88D4F5">
-              <Text style={styles.buttonText}>Add</Text>
-          </TouchableHighlight>
-      </View>
-    )
-  }
   render() {
     if(this.state.loaded){
       return (
@@ -112,7 +88,6 @@ class Main extends Component {
             onPress={this.addLocation.bind(this)}>
             <Text style={styles.addBtn}> {'\uf196'} </Text>
           </TouchableHighlight>
-          {this.footer()}
         </View>
       );
     } else {
