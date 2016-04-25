@@ -8,6 +8,7 @@ import React, {
 import styles from './style'
 import iconMapping from '../../Utils/iconMappings';
 import PhotoBack from '../PhotoBack'
+import Forecast from '../Forecast'
 
 
 class DetailsView extends Component {
@@ -41,6 +42,7 @@ class DetailsView extends Component {
               <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
               <Text style={styles.iconText}> {this.props.forecast.wind.speed.toFixed(0)} m/s</Text>
             </View>
+            <Forecast locationId={this.props.forecast.id}/>
           </View>
         </PhotoBack>
     );
