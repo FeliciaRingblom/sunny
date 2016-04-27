@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     paddingTop: 65,
+    paddingBottom: 65,
     paddingHorizontal: 20,
     alignItems: 'center',
   },

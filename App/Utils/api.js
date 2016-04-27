@@ -12,7 +12,7 @@ var api = {
     return fetch(url).then((res) => res.json())
   },
   getForecast(id) {
-    var url = `${API_STEM}forecast?id=${id}&units=metric&APPID=${API_KEY}`;
+    var url = `${API_STEM}forecast/daily?id=${id}&units=metric&APPID=${API_KEY}`;
     return fetch(url).then((res) => res.json())
   }
 };
