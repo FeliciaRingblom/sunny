@@ -14,7 +14,7 @@ import Forecast from '../Forecast'
 class DetailsView extends Component {
   setRotation(deg){
     var degrees = `${deg}deg`;
-    return null//{transform: [{rotate: degrees}]};
+    return {transform: [{rotate: degrees}]};
   }
   render() {
     let iconId = this.props.forecast.weather[0].id;
@@ -39,7 +39,7 @@ class DetailsView extends Component {
               <Text style={styles.icon}>{iconMapping[102]}</Text>
               <Text style={styles.iconText}> {`${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`} </Text>
 
-              <Text style={[styles.icon, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
+              <Text style={[styles.iconWind, this.setRotation(this.props.forecast.wind.deg)]}>{iconMapping[100]}</Text>
               <Text style={styles.iconText}> {this.props.forecast.wind.speed.toFixed(0)} m/s</Text>
             </View>
             <Forecast locationId={this.props.forecast.id}/>

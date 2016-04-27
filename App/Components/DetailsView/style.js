@@ -46,7 +46,14 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'WeatherIcons-Regular',
     color: 'white',
-    fontSize: 20
+    fontSize: 20,
+  },
+  iconWind:  {
+    flex: 1,
+    fontFamily: 'WeatherIcons-Regular',
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
   },
   iconText:  {
     flex: 3,
