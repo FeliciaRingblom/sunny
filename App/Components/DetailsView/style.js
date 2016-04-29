@@ -7,18 +7,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 65,
+    paddingTop: 45,
     paddingBottom: 65,
     paddingHorizontal: 20,
     alignItems: 'center',
   },
   location: {
     color: 'white',
-    fontSize: 30
+    fontSize: 25,
+    marginBottom: 20
   },
   temp: {
     color: 'white',
-    fontSize: 50,
+    fontSize: 40,
   },
   descriptionShort: {
     color: 'white',
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   iconLg:  {
     fontFamily: 'WeatherIcons-Regular',
     color: 'white',
-    fontSize: 75,
+    fontSize: 90,
   },
   iconRow: {
     flexDirection: 'row',

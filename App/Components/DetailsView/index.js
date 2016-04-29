@@ -27,7 +27,7 @@ class DetailsView extends Component {
         <PhotoBack>
           <View style={styles.container}>
             <Text style={styles.location}> {this.props.forecast.name} </Text>
-            <Text style={styles.temp}> {this.props.forecast.main.temp.toFixed(1)} °C </Text>
+            <Text style={styles.temp}> {this.props.forecast.main.temp.toFixed(0)} °C </Text>
             <Text style={styles.descriptionShort}> {this.props.forecast.weather[0].main} </Text>
             <Text style={styles.descriptionLong}> {this.props.forecast.weather[0].description} </Text>
             <Text style={styles.iconLg}>{iconMapping[iconId]}</Text>
