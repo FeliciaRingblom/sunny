@@ -17,6 +17,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 7,
     bottom: 7
+  },
+  editBtn: {
+    fontFamily: 'FontAwesome',
+    color: 'white',
+    fontSize: 30,
+    textAlign: 'center',
+    position: 'absolute',
+    left: 7,
+    bottom: 7,
   }
 });
 

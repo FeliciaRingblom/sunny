@@ -13,9 +13,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems:'center',
   },
+  locationContainer:{
+    flex: 4,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   city: {
     color: 'white',
-    flex: 4
   },
   temp: {
     color: 'white',
@@ -27,6 +31,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     textAlign: 'right'
+  },
+  removeIcon: {
+    fontFamily: 'FontAwesome',
+    color: 'red',
+    fontSize: 20,
   }
 });
 

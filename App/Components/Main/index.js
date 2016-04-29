@@ -21,7 +21,8 @@ class Main extends Component {
     super(props);
     this.state = {
       forecasts: null,
-      loaded: false
+      loaded: false,
+      edit: false
     }
   }
   componentDidMount(){
@@ -43,6 +44,15 @@ class Main extends Component {
       },
       type: 'FromBottom'
     });
+  }
+  toggleEdit(){
+    this.setState({edit: !this.state.edit});
+    if (this.state.edit){
+      console.log('edit on');
+    }else{
+      console.log('edit off');
+    }
+
   }
   handleForecastResponse(res){
     var newForecasts = this.state.forecasts.slice();
@@ -82,11 +92,16 @@ class Main extends Component {
     if(this.state.loaded){
       return (
         <View style={styles.container}>
-          <ListContainer navigator={this.props.navigator} forecasts={this.state.forecasts}/>
+          <ListContainer navigator={this.props.navigator} forecasts={this.state.forecasts} edit={this.state.edit}/>
           <TouchableHighlight
             underlayColor='rgba(255,255,255,0.8)'
             onPress={this.addLocation.bind(this)}>
             <Text style={styles.addBtn}> {'\uf196'} </Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor='rgba(255,255,255,0.8)'
+            onPress={this.toggleEdit.bind(this)}>
+            <Text style={styles.editBtn}> {'\uf044'} </Text>
           </TouchableHighlight>
         </View>
       );

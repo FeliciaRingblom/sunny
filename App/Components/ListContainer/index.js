@@ -18,12 +18,23 @@ class ListContainer extends Component {
       dataSource: this.ds.cloneWithRows(this.props.forecasts)
     }
   }
+  componentDidMount(){
+    this.state = {
+      dataSource: this.ds.cloneWithRows(this.props.forecasts)
+    }
+  }
+  componentDidUpdate(){
+    this.state = {
+      dataSource: this.ds.cloneWithRows(this.props.forecasts)
+    }
+  }
   renderRow(rowData){
     return (
-      <ListRow forecast={rowData} navigator={this.props.navigator}/>
+      <ListRow forecast={rowData} navigator={this.props.navigator} edit={this.props.edit}/>
     )
   }
   render() {
+      console.log(this.props.edit);
     return (
       <ListView
         dataSource={this.state.dataSource}
@@ -35,7 +46,8 @@ class ListContainer extends Component {
 
 ListContainer.propTypes = {
   navigator: React.PropTypes.object.isRequired,
-  forecasts: React.PropTypes.array.isRequired
+  forecasts: React.PropTypes.array.isRequired,
+  edit: React.PropTypes.bool.isRequired
 }
 
 export default ListContainer;
